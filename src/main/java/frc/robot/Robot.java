@@ -54,7 +54,10 @@ public class Robot extends TimedRobot {
   }
 
   @Override
-  public void teleopInit() {
+  public void teleopInit() {}
+
+  @Override
+  public void teleopPeriodic() {
     m_driveTrain.drive(RobotMap.kSpeed*m_controller.getRawAxis(RobotMap.kSpeedAxis), -RobotMap.kSpeed*m_controller.getRawAxis(RobotMap.kSpinAxis));
     if(m_controller.getRawButton(RobotMap.kArmForwardsButton)){
       m_armMotor.spinForwards();
@@ -66,9 +69,6 @@ public class Robot extends TimedRobot {
       m_armMotor.stop();
     }
   }
-
-  @Override
-  public void teleopPeriodic() {}
 
   @Override
   public void disabledInit() {}
